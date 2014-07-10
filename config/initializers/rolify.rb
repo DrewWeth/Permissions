@@ -1,4 +1,4 @@
-Rolify.configure("Role") do |config|
+Rolify.configure("OrganizationsRoles") do |config|
   # By default ORM adapter is ActiveRecord. uncomment to use mongoid
   # config.use_mongoid
   

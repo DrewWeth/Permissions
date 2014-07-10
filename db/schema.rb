@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709232154) do
+ActiveRecord::Schema.define(version: 20140710002034) do
 
   create_table "organizations", force: true do |t|
     t.string   "name"
@@ -19,6 +19,24 @@ ActiveRecord::Schema.define(version: 20140709232154) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "organizations_organizations_roles", id: false, force: true do |t|
+    t.integer "organization_id"
+    t.integer "organizations_roles_id"
+  end
+
+  add_index "organizations_organizations_roles", ["organization_id", "organizations_roles_id"], name: "org_index_name"
+
+  create_table "organizations_roles", force: true do |t|
+    t.string   "name"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "organizations_roles", ["name", "resource_type", "resource_id"], name: "org_role_name"
+  add_index "organizations_roles", ["name"], name: "index_organizations_roles_on_name"
 
   create_table "roles", force: true do |t|
     t.string   "name"

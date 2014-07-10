@@ -1,6 +1,5 @@
 class Organization < ActiveRecord::Base
-  rolify :role_cname => 'OrganizationsRoles'
-  	resourcify :resources
+  resourcify :resources
 	rolify
 
 	belongs_to :user

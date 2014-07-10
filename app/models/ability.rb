@@ -7,10 +7,8 @@ class Ability
     if user.has_role? :admin
         can :manage, :all
     elsif user.has_role? :leader
-        can :delete, Organization, :user_id => user.id
-        can :edit, Organization, :user_id => user.id
-        can :update, Organization, :user_id => user.id
-    
+        can :manage, Organization, :user_id => user.id
+        
     else
         can :read, :all
     end
